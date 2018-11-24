@@ -1,0 +1,30 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8"></meta>
+		<meta http-equiv="Content-Type" content="text/html"></meta>
+		<title>Registrar finca</title>
+	</head>
+	<body>
+		<div>
+			<h1 >Registrar finca</h1>
+			<div>
+				<form th:object="${finca}" th:action="@{/finca/create}" method="post">
+					<p><span th:text="${'Prod: '+finca.idProductor}"></span></p>
+					<div>
+				      	<input th:field="*{idProductor}" type="hidden" placeholder="Mi finca" >
+					</div>
+					<div>
+						<label>Nombre</label>
+				      	<input th:field="*{nombre}" type="text" placeholder="Mi finca" >
+					</div>
+			    	<div>
+				    	<label>Numero de propiedad</label>
+				    	<input th:field="*{numPropiedad}" type="text" placeholder="9812398123...">
+				  	</div>
+				  	<button type="submit">Crear</button>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

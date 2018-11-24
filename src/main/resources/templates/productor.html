@@ -1,0 +1,46 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8"></meta>
+		<meta http-equiv="Content-Type" content="text/html"></meta>
+		<title>Registro de productor</title>
+	</head>
+	<body>
+		<div>
+			<h1 >Registrar productor</h1>
+			<div>
+				<form th:object="${productor}" th:action="@{/productor/create}" method="post">
+					<div>
+						<label>Nombre</label>
+				      	<input th:field="*{nombre}" type="text" placeholder="Leo Mora" >
+					</div>
+			    	<div>
+				    	<label>Dirección exacta</label>
+				    	<input th:field="*{direccion}" type="text" placeholder="Del palo de mango...">
+				  	</div>
+				  	<div>
+				    	<label>Provincia</label>
+				    	<input th:field="*{provincia}" type="text" placeholder="San Jose">
+				  	</div>
+				  	<div>
+				    	<label>Cantón</label>
+				    	<input th:field="*{canton}" type="text" placeholder="Goicoechea">
+				  	</div>
+				  	<div>
+				    	<label>Distrito</label>
+				    	<input th:field="*{distrito}" type="text" placeholder="Calle Blancos">
+				  	</div>
+				  	<div>
+				      	<label>Cédula</label>
+				      	<input th:field="*{cedula}" placeholder="8888-8888">
+			    	</div>
+				  	<div>
+				    	<label>Nombre de la empresa</label>
+				    	<input th:field="*{empresa}" type="text" placeholder="Cenfotec">
+				  	</div>
+				  	<button type="submit">Crear</button>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,14 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8"></meta>
+		<meta http-equiv="Content-Type" content="text/html"></meta>
+		<title>Cafes</title>
+	</head>
+	<body>
+		<th:block th:each="cafe: ${cafes}" th:object="${cafe}">
+			<p><span th:text="${'Variedad '+cafe.variedad}"></span></p>
+			<hr/>
+		</th:block>
+	</body>
+</html>

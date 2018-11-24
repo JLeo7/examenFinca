@@ -1,0 +1,21 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8"></meta>
+		<meta http-equiv="Content-Type" content="text/html"></meta>
+		<title>Fincas</title>
+	</head>
+	<body>
+		<th:block th:each="finca: ${fincas}" th:object="${finca}">
+			<p><span th:text="${'Nombre: '+finca.nombre}"></span></p>
+			<p><span th:text="${'Numero: ' +finca.numPropiedad}"></span></p>
+			<form th:object="${finca}" th:action="@{'/cafe/' + ${finca.id} + '/' + ${finca.idProductor}}">
+				<button type="submit">Registrar cafe</button>
+			</form>
+			<form th:object="${finca}" th:action="@{'/listarcafe/' + ${finca.id}}">
+				<button type="submit">Listar cafes</button>
+			</form>
+			<hr/>
+		</th:block>
+	</body>
+</html>

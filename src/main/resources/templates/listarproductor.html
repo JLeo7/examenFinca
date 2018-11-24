@@ -1,0 +1,33 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8"></meta>
+		<meta http-equiv="Content-Type" content="text/html"></meta>
+		<title>Productores</title>
+	</head>
+	<body>
+		<form th:object="${productor}" th:action="@{/listarproductor}" method="post">
+					<div>
+						<label>Nombre a buscar</label>
+				      	<input th:field="*{nombre}" type="text" placeholder="Leo Mora" >
+					</div>
+			<button type="submit">Buscar</button>
+		</form>
+		<th:block th:each="prod: ${productores}" th:object="${productor}">
+			<p><span th:text="${'Nombre: '+prod.nombre}"></span></p>
+			<p><span th:text="${'Cédula: '+prod.cedula}"></span></p>
+			<p><span th:text="${'Empresa: ' +prod.empresa}"></span></p>
+			<p><span th:text="${'Provincia: ' +prod.provincia}"></span></p>
+			<p><span th:text="${'Cantón: ' +prod.canton}"></span></p>
+			<p><span th:text="${'Distrito: ' +prod.distrito}"></span></p>
+			<p><span th:text="${'Dirección: ' +prod.direccion}"></span></p>
+			<form th:object="${productor}" th:action="@{'/finca/' + ${prod.id}}">
+				<button type="submit">Registrar finca</button>
+			</form>
+			<form th:object="${productor}" th:action="@{'/listarfinca/' + ${prod.id}}">
+				<button type="submit">Listar fincas</button>
+			</form>
+			<hr/>
+		</th:block>
+	</body>
+</html>
